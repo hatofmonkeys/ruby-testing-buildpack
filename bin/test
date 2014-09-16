@@ -1,0 +1,10 @@
+#!/bin/bash
+#get an env that looks like the running env
+if [ -d ${1}.profile.d ]; then
+  for env_file in ${1}.profile.d/*; do
+    source $env_file
+  done
+fi
+#run the test suite
+cd ${1}
+bundle exec rake test
