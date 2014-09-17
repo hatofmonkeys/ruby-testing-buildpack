@@ -1,5 +1,6 @@
 #!/bin/bash
-echo "THIS IS GOOD"
 PWD="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-./test $@
+#FIX FOR STAGING STACK BUG
+export STACK=""
 $PWD/../bin-orig/compile $@
+$PWD/test $@ || exit 1
